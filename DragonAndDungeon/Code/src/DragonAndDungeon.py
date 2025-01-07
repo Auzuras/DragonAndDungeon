@@ -1,7 +1,8 @@
-from Code.srv.test import *
+from Core.Application import Application
 
 def main():
-    cac()
+    application = Application()
+    application.update()
 
 if __name__ == "__main__":
     main()
