@@ -6,9 +6,6 @@ class Character(ABC):
     _life = 100
     _max_life = 100
 
-    _xp = 0
-    _max_xp = 100
-
     _level = 1
 
     _strength = 1
@@ -19,6 +16,10 @@ class Character(ABC):
     _critical_multi = 1.1
 
     _weapon_inventory = {}
+    _attacks = []
+
+    _x = 0
+    _y = 0
 
     def __init__(self, name):
         self._name = name

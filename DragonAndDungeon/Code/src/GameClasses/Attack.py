@@ -7,7 +7,11 @@ class Attack:
         self.__weapon = weapon
 
     def attack(self, character):
+
         # Use weapon if present
+        if self.__weapon == None:
+            pass
+
         character.take_damage(self.__damages)
 
 

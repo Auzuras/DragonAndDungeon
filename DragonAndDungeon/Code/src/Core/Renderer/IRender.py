@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class IRender(ABC):
 
     @abstractmethod
-    def draw_grid(self, game_map):
+    def draw_map(self, game_map, player, enemies):
         pass
 
     @abstractmethod

@@ -23,6 +23,9 @@ class Grid:
                 if x == 0 or x == width - 1:
                     tile.tile_char = '|'
                     tile.is_occupied = True
+                if x == 0 and y == 0 or y == 0 and x == width - 1 or x == 0 and y == height - 1 or x == width - 1 and y == height -1:
+                    tile.tile_char = 'x'
+                    tile.is_occupied = True
                 row.append(tile)
             array.append(row)
         
