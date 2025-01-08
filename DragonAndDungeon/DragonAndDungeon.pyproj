@@ -26,10 +26,12 @@
     <Compile Include="Code\src\Core\Renderer\PygameRender.py" />
     <Compile Include="Code\src\Core\Renderer\TerminalRender.py" />
     <Compile Include="Code\src\DragonAndDungeon.py" />
+    <Compile Include="Code\src\GameClasses\Attack.py" />
     <Compile Include="Code\src\GameClasses\Characters\Character.py" />
     <Compile Include="Code\src\GameClasses\Characters\Enemy.py" />
     <Compile Include="Code\src\GameClasses\Characters\Player.py" />
     <Compile Include="Code\src\GameClasses\Game.py" />
+    <Compile Include="Code\src\GameClasses\Items\Item.py" />
     <Compile Include="Code\src\GameClasses\Map\Grid.py" />
     <Compile Include="Code\src\GameClasses\Map\Tile.py" />
   </ItemGroup>
@@ -41,6 +43,7 @@
     <Folder Include="Code\src\GameClasses\" />
     <Folder Include="Code\src\GameClasses\Characters\" />
     <Folder Include="Code\src\GameClasses\Map\" />
+    <Folder Include="Code\src\GameClasses\Items\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

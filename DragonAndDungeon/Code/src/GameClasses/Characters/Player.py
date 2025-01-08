@@ -7,6 +7,7 @@ class Player(Character):
         super().__init__(name)
         self.x = x
         self.y = y
+        self._inventory = {}
 
     def move(self):
 
@@ -32,6 +33,12 @@ class Player(Character):
         print("A - Left")
         print("D - Right")
 
+    def take_damage(self, damage_amount):
+        return super().take_damage(damage_amount)
+
+    def _death(self):
+        return super().death()
+
     def update(self, game_map):
 
         new_pos = self.move()
@@ -41,9 +48,10 @@ class Player(Character):
         self.y = new_pos[1]
 
         game_map.grid[self.y][self.x].tile_char = 'o'
-
-    
    
     def draw(self):
         self.draw_move()
+        pass
+
+    def take_item(self, item):
         pass
