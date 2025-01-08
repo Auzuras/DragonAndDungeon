@@ -10,9 +10,11 @@ class Game:
         self.player = Player("Joe", 2, 3)
 
     def update(self):
-        self.renderer.draw_line()
         self.player.update(self.game_map)
-        self.renderer.draw_line()
 
     def draw(self):
         self.renderer.draw_grid(self.game_map)
+
+        self.renderer.draw_line()
+        self.player.draw()
+        self.renderer.draw_line()
