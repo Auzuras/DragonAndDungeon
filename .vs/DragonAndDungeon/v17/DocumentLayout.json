@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\Core\\Application.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\Core\\Application.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Game.py||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\GameClasses\\Game.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\Core\\Application.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\Core\\Application.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|solutionrelative:DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2B1D8BEB-1CB4-4F24-8045-DD45DA41247B}|DragonAndDungeon\\DragonAndDungeon.pyproj|C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Character.py||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -70,13 +70,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Grid.py",
               "DocumentMoniker": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py",
               "RelativeDocumentMoniker": "DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py",
               "ToolTip": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py",
               "RelativeToolTip": "DragonAndDungeon\\Code\\src\\GameClasses\\Map\\Grid.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAZAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
               "WhenOpened": "2025-01-07T22:22:50.551Z",
               "EditorCaption": ""
@@ -85,7 +85,7 @@
         },
         {
           "DockedWidth": 235,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -93,20 +93,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Application.py",
               "DocumentMoniker": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\Core\\Application.py",
               "RelativeDocumentMoniker": "DragonAndDungeon\\Code\\src\\Core\\Application.py",
-              "ToolTip": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\Core\\Application.py",
-              "RelativeToolTip": "DragonAndDungeon\\Code\\src\\Core\\Application.py",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAaAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\Core\\Application.py*",
+              "RelativeToolTip": "DragonAndDungeon\\Code\\src\\Core\\Application.py*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAApAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
               "WhenOpened": "2025-01-08T00:01:05.197Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Game.py",
               "DocumentMoniker": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Game.py",
               "RelativeDocumentMoniker": "DragonAndDungeon\\Code\\src\\GameClasses\\Game.py",
@@ -127,18 +127,17 @@
               "RelativeToolTip": "DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Character.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-01-07T23:41:25.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-07T23:41:25.358Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Player.py",
               "DocumentMoniker": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py",
               "RelativeDocumentMoniker": "DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py",
               "ToolTip": "C:\\Users\\Auzur\\source\\repos\\DragonAndDungeon\\DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py",
               "RelativeToolTip": "DragonAndDungeon\\Code\\src\\GameClasses\\Characters\\Player.py",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAjwA4AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAjwCUAAAAcAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHfSURBVDhPpZCxaxNhGMZ/9zVJaUuDUlq1FBWLZBFTCXo4BFyU1qGKi4OkIHhkzF/g0KF00M2lR9YUdDDQQVAcJILoQUd1UNRmkhoRm8RL777v7nOoCZd4AcEH3uF5nvd73vd74X\u002BgtTai3LIsHeWDEEJct217a1DvwbIs7bpubFUqFW3b9naxWLwWfSOipAvHcfqqi0KhkMtms3cty1rsaomeG4FpmoMSANVqlXQ6nQMWgacMC4hOBchduEj\u002ByjKjScGh8SS1Wq3nxQZEN3j1eY/Vrfe8rTeQvsf89ARLS1cz5XIZ/uUGXxptQiVRUhJIybudXaZn52a7vbEBpmkyNb/A69YM9W8tDEJOTI2hpI\u002BSkvOZH2f13sNAB\u002B07sV9wHIdH9Unquz9RvoeUPtL3UFISKkky\u002BAT7HwTi6FpsgGma3N9\u002Bg5I\u002BKaFZyU8wOpJChwHnjiuE9wKCXyC/zsQGOI7DeELjtiUPbgky6Wd/HA3KBelC4AIpNfQGl88cQ0mfI5PugRhKkM2DUk0INYwtPI/dAGAlf4rbl06T6DyBVgeCABJzYPhwcm0V8ICNvwJKpVIf37h3IxSyKVAuBMDIYQAMw1jvaxwGrYNl3Xq5o79vat3Y3Nedj4\u002B11je7/m\u002BXOuyzFtDhUgAAAABJRU5ErkJggg==",
               "WhenOpened": "2025-01-07T23:40:33.478Z",
               "EditorCaption": ""

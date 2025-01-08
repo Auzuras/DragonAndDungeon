@@ -12,18 +12,18 @@ class Grid:
         if height < 2 or width < 2:
             raise ValueError("Width or Height of the map are under 2")
         
-        tableau = []
+        array = []
         for y in range(int(height)):
-            ligne = []
-            for x in range(int(height)):
+            row = []
+            for x in range(int(width)):
                 tile = Tile(x, y)
                 if y == 0 or y == height - 1:
                     tile.tile_char = '='
                     tile.is_occupied = True
-                if x == 0 or x == height - 1:
+                if x == 0 or x == width - 1:
                     tile.tile_char = '|'
                     tile.is_occupied = True
-                ligne.append(tile)
-            tableau.append(ligne)
+                row.append(tile)
+            array.append(row)
         
-        self.grid = tableau
+        self.grid = array

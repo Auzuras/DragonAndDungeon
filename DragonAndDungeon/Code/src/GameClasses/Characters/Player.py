@@ -16,13 +16,13 @@ class Player(Character):
         new_y = self.y
 
         if result.upper() == 'W':
-            new_x += 1
-        if result.upper() == 'S':
-            new_x -= 1
-        if result.upper() == 'A':
             new_y -= 1
-        if result.upper() == 'D':
+        if result.upper() == 'S':
             new_y += 1
+        if result.upper() == 'A':
+            new_x -= 1
+        if result.upper() == 'D':
+            new_x += 1
 
         return [new_x, new_y]
 
@@ -35,12 +35,12 @@ class Player(Character):
     def update(self, game_map):
 
         new_pos = self.move()
-        game_map.grid[self.x][self.y].tile_char = ' '
+        game_map.grid[self.y][self.x].tile_char = ' '
 
         self.x = new_pos[0]
         self.y = new_pos[1]
 
-        game_map.grid[self.x][self.y].tile_char = 'o'
+        game_map.grid[self.y][self.x].tile_char = 'o'
 
     
    

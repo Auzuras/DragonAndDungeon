@@ -22,5 +22,6 @@ class Application:
 
     def update(self):
         while True:
+            print("\033[H\033[J", end="")
             self.game.draw()
             self.game.update()
