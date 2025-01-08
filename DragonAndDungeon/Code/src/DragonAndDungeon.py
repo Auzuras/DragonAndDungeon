@@ -2,7 +2,7 @@ from Core.Application import Application
 
 def main():
 
-    application = Application()
+    application = Application(1920, 1080, 30)
 
     application.update()
 

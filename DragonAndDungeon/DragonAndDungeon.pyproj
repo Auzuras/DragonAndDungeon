@@ -26,19 +26,21 @@
     <Compile Include="Code\src\Core\Renderer\PygameRender.py" />
     <Compile Include="Code\src\Core\Renderer\TerminalRender.py" />
     <Compile Include="Code\src\DragonAndDungeon.py" />
-    <Compile Include="Code\src\Game\Characters\Character.py" />
-    <Compile Include="Code\src\Game\Characters\Enemy.py" />
-    <Compile Include="Code\src\Game\Characters\Player.py" />
-    <Compile Include="Code\src\Game\Game.py" />
+    <Compile Include="Code\src\GameClasses\Characters\Character.py" />
+    <Compile Include="Code\src\GameClasses\Characters\Enemy.py" />
+    <Compile Include="Code\src\GameClasses\Characters\Player.py" />
+    <Compile Include="Code\src\GameClasses\Game.py" />
+    <Compile Include="Code\src\GameClasses\Map\Grid.py" />
+    <Compile Include="Code\src\GameClasses\Map\Tile.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\" />
     <Folder Include="Code\src\" />
     <Folder Include="Code\src\Core\" />
     <Folder Include="Code\src\Core\Renderer\" />
-    <Folder Include="Code\src\Game\" />
-    <Folder Include="Code\src\Game\Characters\" />
-    <Folder Include="Code\src\Game\Map\" />
+    <Folder Include="Code\src\GameClasses\" />
+    <Folder Include="Code\src\GameClasses\Characters\" />
+    <Folder Include="Code\src\GameClasses\Map\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

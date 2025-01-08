@@ -1,4 +1,6 @@
-class Character:
+from abc import ABC, abstractmethod
+
+class Character(ABC):
     name = "None"
 
     life = 100
@@ -18,3 +20,11 @@ class Character:
 
     def __init__(self, name):
         self.name = name
+
+    @abstractmethod
+    def update(self):
+        pass
+
+    @abstractmethod
+    def draw(self):
+        pass
