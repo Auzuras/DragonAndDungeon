@@ -19,11 +19,11 @@ class FightArea:
             attack_infos = self.__enemy.attack(self.__player)
             self.__index += 1
 
-            if self.__player.is_alive == False:
-                self.__player.player_state = PlayerState.GAME_OVER
-
             text = f"\033[0;37m<\033[0m \033[31m{self.__enemy.name}\033[0m attacks \033[32m{self.__player.name}\033[0m with {attack_infos[0].name} using {attack_infos[1].name} (-{attack_infos[1].last_damages}pv)"
             self.__combat_log.append(text)
+
+            if self.__player.is_alive == False:
+                self.__player.player_state = PlayerState.GAME_OVER
 
             return
 

@@ -59,6 +59,15 @@ class Player(Character):
 
                 print(f"    {j + 1} - {self._weapon_inventory[i].attacks[j].name} | {self._weapon_inventory[i].attacks[j].damages} damages ")
 
+    def __draw_interaction(self):
+        print("1 - Pick item")
+        print("2 - Use item")
+
+    def __draw_game_over(self):
+        print("\033[93m -*- Game Over -*- \033[0m")
+        print("\033[93mPress any key to restart...\033[0m")
+
+
     def take_damage(self, damage_amount):
         return super().take_damage(damage_amount)
 
@@ -100,14 +109,18 @@ class Player(Character):
 
         if self.__player_state == PlayerState.WALKING:
             self.move(game_map)
+            
    
     # Draw method
     def draw(self):
         if self.__player_state == PlayerState.WALKING:
             self.__draw_move()
-        else:
+        elif self.__player_state == PlayerState.COMBAT:
             self.__draw_combat()
-        pass
+        elif self.__player_state == PlayerState.INTERACTION:
+            self.__draw_interaction()
+        elif self.__player_state == PlayerState.GAME_OVER:
+            self.__draw_game_over()
 
     def take_item(self, item):
         pass

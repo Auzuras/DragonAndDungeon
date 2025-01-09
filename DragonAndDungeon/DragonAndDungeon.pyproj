@@ -33,7 +33,7 @@
     <Compile Include="Code\src\GameClasses\Characters\PlayerState.py" />
     <Compile Include="Code\src\GameClasses\FightArea.py" />
     <Compile Include="Code\src\GameClasses\Game.py" />
-    <Compile Include="Code\src\GameClasses\Items\HealingPotion.py" />
+    <Compile Include="Code\src\GameClasses\Items\Potion.py" />
     <Compile Include="Code\src\GameClasses\Items\Item.py" />
     <Compile Include="Code\src\GameClasses\Items\Weapon.py" />
     <Compile Include="Code\src\GameClasses\Map\Grid.py" />
@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Enemies.json" />
+    <Content Include="Assets\Potions.json" />
     <Content Include="Assets\Weapons.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
