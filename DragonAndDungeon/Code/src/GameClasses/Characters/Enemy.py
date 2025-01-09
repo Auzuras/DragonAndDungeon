@@ -1,3 +1,4 @@
+﻿from Code.src.GameClasses.Attack import Attack
 from GameClasses.Characters.Character import *
 
 class Enemy(Character):
@@ -6,22 +7,20 @@ class Enemy(Character):
         super().__init__(name)
         self._x = x
         self._y = y
-
-
-    @property
-    def x(self):
-        return self._x;
-
-    @property
-    def y(self):
-        return self._y;
+        self._attacks = [Attack("Fists", 5), Attack("Kick", 7)]
 
     def take_damage(self, damage_amount):
         return super().take_damage(damage_amount)
 
     def _death(self):
-        return super().death()
+        return super()._death()
 
+    def attack(self, player):
+
+        if not self._is_alive:
+            return
+
+        self._attacks[0].attack(player, (self._strength // 2) * self._critical_multi)
 
     def update(self):
         pass

@@ -5,8 +5,9 @@ from GameClasses.Map.Grid import Grid
 from GameClasses.Map.Tile import Tile
 from GameClasses.Characters.Player import Player
 from GameClasses.Characters.Enemy import Enemy
+from GameClasses.Game import Game
 
-class TerminalRender:
+class TerminalRender(IRender):
     def __init__(self):
         pass
 
@@ -27,6 +28,3 @@ class TerminalRender:
 
     def draw_line(self):
         print("xX-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-Xx")
-
-    def draw_ui(self):
-        pass
