@@ -1,4 +1,6 @@
-﻿from GameClasses.Characters.Character import Character
+﻿from random import randint
+from Code.src.GameClasses.Items.Potion import Potion
+from GameClasses.Characters.Character import Character
 from GameClasses.Map.Grid import Grid
 from GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
@@ -9,7 +11,7 @@ class Player(Character):
         super().__init__(name)
         self._x = x
         self._y = y
-        self._inventory = {}    
+        self._inventory = []    
         self.__xp = 0
         self.__max_xp = 100
         self.__player_state = PlayerState.WALKING
@@ -67,14 +69,17 @@ class Player(Character):
         print("\033[93m -*- Game Over -*- \033[0m")
         print("\033[93mPress any key to restart...\033[0m")
 
-
     def take_damage(self, damage_amount):
         return super().take_damage(damage_amount)
 
     def pick_weapon(self, weapon):
         return super().pick_weapon(weapon)
 
+    def pick_item(self, item):
+        self._inventory.append(item)
+
     def _death(self):
+        self.__player_state = PlayerState.GAME_OVER
         return super()._death()
 
     def attack(self, weapon, attack, enemy):
@@ -104,12 +109,39 @@ class Player(Character):
 
         return [next_weapon, next_attack]
 
+    def use_item(self, item):
+
+        if not isinstance(item, Potion):
+            return
+
+        potion = Potion(item)
+       
+        value = randint(potion.min_value, potion.max_value)
+
+        if potion.type == 0:
+            self.__change_life(value)
+            return
+
+        elif potion.type == 1:
+            self.__change_life(-value)
+            return
+    
+    def __change_life(self, value):
+
+        self._life += value
+
+        if self._life > self._max_life:
+            self._life = self._max_life
+
+        elif self._life <= 0:
+            self._life = 0
+            self._death()
+
     # Update method
     def update(self, game_map):
 
         if self.__player_state == PlayerState.WALKING:
-            self.move(game_map)
-            
+            self.move(game_map)     
    
     # Draw method
     def draw(self):

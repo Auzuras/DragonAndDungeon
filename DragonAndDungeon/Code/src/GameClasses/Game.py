@@ -9,6 +9,7 @@ from GameClasses.Characters.Enemy import Enemy
 from GameClasses.Items.Weapon import Weapon
 from GameClasses.FightArea import FightArea
 from GameClasses.Items.Potion import Potion, PotionType
+from GameClasses.InteractionSystem import InteractionSystem
 from Core.Renderer.IRender import *
 from Core.Renderer.TerminalRender import *
 
@@ -25,6 +26,7 @@ class Game:
         self.enemies = []
         self.potions = []
         self.__fight_area = None
+        self.__interaction_system = None
         self.init_enemies()
         self.init_item()
         self.load_weapons()
@@ -98,6 +100,7 @@ class Game:
         self.enemies = []
         self.potions = []
         self.__fight_area = None
+        self.__interaction_system = None
         self.init_enemies()
         self.init_item()
         self.load_weapons()
@@ -149,6 +152,7 @@ class Game:
         for potion in items:
             if potion.x == player.x and potion.y == player.y:
                 player.player_state = PlayerState.INTERACTION
+                self.__interaction_system = InteractionSystem(player, potion)
 
     # Update method of the game
     def update(self):
@@ -162,11 +166,15 @@ class Game:
         if self.player.player_state == PlayerState.COMBAT:
             self.__fight_area.update(self.enemies)
 
+        if self.player.player_state == PlayerState.INTERACTION:
+            self.__interaction_system.update(self.potions)
+
         self.check_enemy_collisions(self.player, self.enemies)
         self.check_item_collisions(self.player, self.potions)
     
     # Draw method of the game
     def draw(self):
+
         print("\033c", end='')
 
         self.renderer.draw_map(self.game_map, self.player, self.enemies, self.potions)

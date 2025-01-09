@@ -18,5 +18,9 @@ class Potion(Item):
         return self.__min_value
 
     @property
-    def min_value(self):
+    def max_value(self):
         return self.__max_value
+
+    @property
+    def type(self):
+        return self.__potion_type
