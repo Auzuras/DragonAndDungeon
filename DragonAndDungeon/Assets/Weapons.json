@@ -1,7 +1,64 @@
-{
-  "weapons": [
-    {
-      "name": "Sword"      
-    }
-  ]
-}
+[
+  {
+    "name": "Fist",
+    "damage_multi": 1.5,
+    "attacks": [
+      {
+        "name": "Punch",
+        "damages": 5
+      }
+    ]
+  },
+  {
+    "name": "Leg",
+    "damage_multi": 1.0,
+    "attacks": [
+      {
+        "name": "Kick",
+        "damages": 10
+      }
+    ]
+  },
+  {
+    "name": "Sword",
+    "damage_multi": 1.5,
+    "attacks": [
+      {
+        "name": "Slash",
+        "damages": 15
+      },
+      {
+        "name": "Pierce",
+        "damages": 10
+      }
+    ]
+  },
+  {
+    "name": "Flail",
+    "damage_multi": 1.8,
+    "attacks": [
+      {
+        "name": "Bonk",
+        "damages": 20
+      }
+    ]
+  },
+  {
+    "name": "Star Platinum",
+    "damage_multi": 2.0,
+    "attacks": [
+      {
+        "name": "Star Finger",
+        "damages": 30
+      },
+      {
+        "name": "The World",
+        "damages": 100
+      },
+      {
+        "name": "Ora Ora Ora",
+        "damages": 50
+      }
+    ]
+  }
+]

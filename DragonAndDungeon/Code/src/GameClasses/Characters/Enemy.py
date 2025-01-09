@@ -1,4 +1,5 @@
-﻿from Code.src.GameClasses.Attack import Attack
+﻿from random import randint
+from Code.src.GameClasses.Attack import Attack
 from GameClasses.Characters.Character import *
 
 class Enemy(Character):
@@ -7,7 +8,7 @@ class Enemy(Character):
         super().__init__(name)
         self._x = x
         self._y = y
-        self._attacks = [Attack("Fists", 5), Attack("Kick", 7)]
+        self._weapon_inventory = []
 
     def take_damage(self, damage_amount):
         return super().take_damage(damage_amount)
@@ -20,7 +21,22 @@ class Enemy(Character):
         if not self._is_alive:
             return
 
-        self._attacks[0].attack(player, (self._strength // 2) * self._critical_multi)
+        weapon_index = randint(0, len(self._weapon_inventory) - 1)
+        attack_index = randint(0, len(self._weapon_inventory[weapon_index].attacks) - 1)
+
+        next_weapon = self._weapon_inventory[0]
+        next_attack = next_weapon.attacks[attack_index]
+
+        dmg_value = next_attack.damages + (self._strength // 2) * self._critical_multi
+
+        player.take_damage(dmg_value)
+
+        next_attack.last_damages = dmg_value
+
+        return [next_weapon, next_attack]
+
+    def pick_weapon(self, weapon):
+        return super().pick_weapon(weapon)
 
     def update(self):
         pass

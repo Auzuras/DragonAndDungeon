@@ -7,28 +7,44 @@ class FightArea:
     def __init__(self, player, enemy):
         self.__player = player
         self.__enemy = enemy
-        self.__index = 0
+        self.__index = 1
+        self.__combat_log = []
 
     def update(self, enemies):
 
-        if self.__index % 2 == 1:
-            self.__enemy.attack(self.__player)
+        # Array that will have the weapon used at first index and the last attack in second index
+        attack_infos = []
+
+        if self.__index % 2 == 0:
+            attack_infos = self.__enemy.attack(self.__player)
             self.__index += 1
 
             if self.__player.is_alive == False:
                 self.__player.player_state = PlayerState.GAME_OVER
 
+            text = f"\033[0;37m<\033[0m \033[31m{self.__enemy.name}\033[0m attacks \033[32m{self.__player.name}\033[0m with {attack_infos[0].name} using {attack_infos[1].name} (-{attack_infos[1].last_damages}pv)"
+            self.__combat_log.append(text)
+
             return
 
         # Try to convert the input to an int
         try:
-            result = int(input())
-            self.__player.attack(result, self.__enemy)
+            p_weapon = int(input())
+            p_attack = int(input())
+
+            attack_infos = self.__player.attack(p_weapon, p_attack, self.__enemy)
+
+            if len(attack_infos) <= 0:
+                return
+
             self.__index += 1
 
             if self.__enemy.is_alive == False:
                 self.__player.player_state = PlayerState.WALKING
                 enemies.remove(self.__enemy)
+
+            text = f"\033[1;30m>\033[0m \033[32m{self.__player.name}\033[0m attacks \033[31m{self.__player.name}\033[0m with {attack_infos[0].name} using {attack_infos[1].name} (-{attack_infos[1].last_damages}pv)"
+            self.__combat_log.append(text)
 
             return
         # If failed to convert the input because of a wrong input, just ignore
@@ -62,6 +78,9 @@ class FightArea:
         print(f"{self.__enemy.name}'s life (Level {self.__enemy.level}):")
         print(f"\033[31m{final_bar}\033[0m   [{int(round(percent * 100))}%]")
         renderer.draw_line()
+
+        for log in self.__combat_log:
+            print(log)
 
 
 

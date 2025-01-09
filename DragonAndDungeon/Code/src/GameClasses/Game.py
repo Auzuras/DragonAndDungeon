@@ -1,10 +1,12 @@
 ﻿from random import randint
 from unittest import defaultTestLoader
+from Code.src.GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
 from GameClasses.Map.Grid import Grid
 from GameClasses.Map.Tile import Tile
 from GameClasses.Characters.Player import Player
 from GameClasses.Characters.Enemy import Enemy
+from GameClasses.Items.Weapon import Weapon
 from GameClasses.FightArea import FightArea
 from Core.Renderer.IRender import *
 from Core.Renderer.TerminalRender import *
@@ -22,6 +24,7 @@ class Game:
         self.enemies = []
         self.__fight_area = None
         self.init_enemies()
+        self.load_weapons()
 
     # Inits a random number of enemies for the game
     def init_enemies(self):
@@ -52,6 +55,30 @@ class Game:
             new_enemy.critical_multi = enemies_data[value]["critical_multi"]
 
             self.enemies.append(new_enemy)
+
+    def load_weapons(self):
+        with open('Assets/Weapons.json', 'r') as f:
+            weapons_data = json.load(f)
+
+        all_weapons = []
+
+        for data in weapons_data:
+
+            new_weapon = Weapon(data["name"])
+            weapon_attacks = []
+            new_weapon.attacks = weapon_attacks
+
+            for attack in data["attacks"]:
+                weapon_attacks.append(Attack(attack["name"], attack["damages"]))
+
+            all_weapons.append(new_weapon)
+
+        for enemie in self.enemies:
+            value = randint(0, len(weapons_data) - 1)
+            enemie.pick_weapon(all_weapons[value])
+
+        self.player.pick_weapon(all_weapons[4])
+
 
     # Starts a combat between a player and an enemy
     def __start_combat(self, player, enemy):

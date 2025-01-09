@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from GameClasses.Items.Weapon import Weapon
 
 class Character(ABC):
     _name = "None"
@@ -17,8 +18,7 @@ class Character(ABC):
 
     _is_alive = True
 
-    _weapon_inventory = {}
-    _attacks = []
+    _weapon_inventory = []
 
     _x = 0
     _y = 0
@@ -115,6 +115,10 @@ class Character(ABC):
     @abstractmethod
     def _death(self):
         self._is_alive = False
+
+    @abstractmethod
+    def pick_weapon(self, weapon):
+        self._weapon_inventory.append(weapon)
 
     @abstractmethod
     def update(self):

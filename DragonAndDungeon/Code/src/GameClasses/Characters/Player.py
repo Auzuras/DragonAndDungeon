@@ -12,8 +12,8 @@ class Player(Character):
         self._inventory = {}    
         self.__xp = 0
         self.__max_xp = 100
-        self._attacks = [Attack("Fists", 10)]
         self.__player_state = PlayerState.WALKING
+        self._weapon_inventory = []
 
     def move(self, game_map):
 
@@ -41,9 +41,7 @@ class Player(Character):
 
     @player_state.setter
     def player_state(self, new_state):
-        print(type(self.__player_state))
         self.__player_state = new_state
-        print(type(self.__player_state))
 
     def __draw_move(self):
         print("W - Up")
@@ -52,25 +50,50 @@ class Player(Character):
         print("D - Right")
 
     def __draw_combat(self):
-        for i in range(len(self._attacks)):
-            print(f"{i + 1} - {self._attacks[i].name}")
+
+        for i in range(len(self._weapon_inventory)):
+
+            print(f"{i + 1} - {self._weapon_inventory[i].name}")
+
+            for j in range(len(self._weapon_inventory[i].attacks)):
+
+                print(f"    {j + 1} - {self._weapon_inventory[i].attacks[j].name} | {self._weapon_inventory[i].attacks[j].damages} damages ")
 
     def take_damage(self, damage_amount):
         return super().take_damage(damage_amount)
 
+    def pick_weapon(self, weapon):
+        return super().pick_weapon(weapon)
+
     def _death(self):
         return super()._death()
 
-    def attack(self, result, enemy):
+    def attack(self, weapon, attack, enemy):
 
         if not self._is_alive:
-            return
+            return []
+
+        if len(self._weapon_inventory) == 0:
+            return []
+
+        #Checks if the input is over or bellow the array size
+        if weapon <= 0 or weapon > len(self._weapon_inventory):
+            return []
 
         # Checks if the input is over or bellow the array size
-        if result <= 0 or result >= len(self._attacks) + 1:
-            return
+        if attack <= 0 or attack > len(self._weapon_inventory[weapon - 1].attacks):
+            return []
 
-        self._attacks[result - 1].attack(enemy, (self._strength // 2) * self._critical_multi)
+        next_weapon = self._weapon_inventory[weapon - 1]
+        next_attack = next_weapon.attacks[attack - 1]
+
+        dmg_value = next_attack.damages + (self._strength // 2) * self._critical_multi
+
+        enemy.take_damage(dmg_value)
+
+        next_attack.last_damages = dmg_value
+
+        return [next_weapon, next_attack]
 
     # Update method
     def update(self, game_map):
