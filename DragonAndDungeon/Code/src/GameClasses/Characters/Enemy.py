@@ -1,5 +1,5 @@
 ﻿from random import randint
-from Code.src.GameClasses.Attack import Attack
+from GameClasses.Attack import Attack
 from GameClasses.Characters.Character import *
 
 class Enemy(Character):
@@ -33,7 +33,7 @@ class Enemy(Character):
 
         next_attack.last_damages = dmg_value
 
-        return [next_weapon, next_attack]
+        return [next_weapon, next_attack, dmg_value]
 
     def pick_weapon(self, weapon):
         return super().pick_weapon(weapon)

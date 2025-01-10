@@ -1,5 +1,5 @@
 ﻿from random import randint
-from Code.src.GameClasses.Items.Potion import Potion
+from GameClasses.Items.Potion import Potion, PotionType
 from GameClasses.Characters.Character import Character
 from GameClasses.Map.Grid import Grid
 from GameClasses.Attack import Attack
@@ -61,6 +61,14 @@ class Player(Character):
 
                 print(f"    {j + 1} - {self._weapon_inventory[i].attacks[j].name} | {self._weapon_inventory[i].attacks[j].damages} damages ")
 
+        if len(self._inventory) <= 0:
+            return
+
+        print(f"{len(self._weapon_inventory) + 1} - Inventory")
+
+        for i in range(len(self._inventory)):
+            print(f"    {i + 1} - {self._inventory[i].name}")
+
     def __draw_interaction(self):
         print("1 - Pick item")
         print("2 - Use item")
@@ -90,6 +98,19 @@ class Player(Character):
         if len(self._weapon_inventory) == 0:
             return []
 
+        if weapon < 1 and weapon > len(self._weapon_inventory) + len(self._inventory):
+            return []
+
+        # POTION case
+        if weapon > len(self._weapon_inventory) and weapon <= len(self._weapon_inventory) + len(self._inventory):
+            if attack >= 1 and attack <= len(self._inventory):
+                use_item = self._inventory[attack - 1]
+
+                value = self.use_potion(use_item)
+                self._inventory.remove(use_item)
+
+                return [use_item, use_item, value]
+
         #Checks if the input is over or bellow the array size
         if weapon <= 0 or weapon > len(self._weapon_inventory):
             return []
@@ -107,24 +128,19 @@ class Player(Character):
 
         next_attack.last_damages = dmg_value
 
-        return [next_weapon, next_attack]
+        return [next_weapon, next_attack, float(dmg_value)]
 
-    def use_item(self, item):
-
-        if not isinstance(item, Potion):
-            return
-
-        potion = Potion(item)
+    def use_potion(self, potion):
        
         value = randint(potion.min_value, potion.max_value)
 
-        if potion.type == 0:
+        if potion.type == PotionType.HEAL_POTION:
             self.__change_life(value)
-            return
+            return value
 
-        elif potion.type == 1:
+        elif potion.type == PotionType.DAMAGE_POTION:
             self.__change_life(-value)
-            return
+            return -value
     
     def __change_life(self, value):
 

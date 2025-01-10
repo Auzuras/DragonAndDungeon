@@ -1,6 +1,6 @@
 ﻿from random import randint
 from unittest import defaultTestLoader
-from Code.src.GameClasses.Attack import Attack
+from GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
 from GameClasses.Map.Grid import Grid
 from GameClasses.Map.Tile import Tile
@@ -84,7 +84,13 @@ class Game:
             potion_type = randint(0, len(data) - 1)
             potion_data = data[potion_type]
 
-            new_pot = Potion(potion_data["name"], potion_data["min_value"], potion_data["max_value"], PotionType(potion_data["type"]))
+            new_pot = None
+
+            if potion_data["type"] == 0:
+                new_pot = Potion(potion_data["name"], potion_data["min_value"], potion_data["max_value"], PotionType.HEAL_POTION)
+            else:
+                new_pot = Potion(potion_data["name"], potion_data["min_value"], potion_data["max_value"], PotionType.DAMAGE_POTION)
+        
             new_pot.x = x_pos
             new_pot.y = y_pos
 
@@ -126,7 +132,7 @@ class Game:
             value = randint(0, len(weapons_data) - 1)
             enemie.pick_weapon(all_weapons[value])
 
-        self.player.pick_weapon(all_weapons[0])
+        self.player.pick_weapon(all_weapons[3])
 
 
     # Starts a combat between a player and an enemy

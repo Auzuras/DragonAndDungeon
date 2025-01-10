@@ -8,10 +8,10 @@ class PotionType(Enum):
 
 class Potion(Item):
     def __init__(self, name, min_value, max_value, potion_type, x = 0, y = 0):
-        super().__init__(name, x, y)
         self.__min_value = min_value
         self.__max_value = max_value
         self.__potion_type = potion_type
+        super().__init__(name, x, y)
 
     @property
     def min_value(self):

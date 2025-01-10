@@ -11,10 +11,10 @@ class InteractionSystem:
         result = input()
         
         if result == "1":
-            self.__player.use_item(self.__item)
+            self.__player.pick_item(self.__item)
 
         elif result == "2":
-            self.__player.pick_item(self.__item)
+            self.__player.use_potion(self.__item)
         else:
             return
 
