@@ -1,13 +1,11 @@
 ﻿from asyncio import WindowsProactorEventLoopPolicy
 from random import randint
-from tkinter import W
 from GameClasses.Items.Weapon import Weapon
 from GameClasses.Items.Potion import Potion, PotionType
 from GameClasses.Characters.Character import Character
 from GameClasses.Map.Grid import Grid
 from GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
-import Core.Application as app
 
 class Player(Character):
 
@@ -20,8 +18,6 @@ class Player(Character):
         self.__max_xp = 100
         self.__player_state = PlayerState.WALKING
         self._weapon_inventory = []
-        # not really good but import loop and no time to fix it
-        from Core.Application import Application
 
     def move(self, result, game_map):
 
@@ -201,6 +197,8 @@ class Player(Character):
             result = input()
 
             if result.upper() == "Q":
+                # not really good but import loop and no time to fix it
+                import Core.Application as app
                 app.Application.run_app = False
 
             self.move(result, game_map)     

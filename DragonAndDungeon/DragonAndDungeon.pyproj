@@ -39,6 +39,7 @@
     <Compile Include="Code\src\GameClasses\Map\Grid.py" />
     <Compile Include="Code\src\GameClasses\InteractionSystem.py" />
     <Compile Include="Code\src\GameClasses\Map\Tile.py" />
+    <Compile Include="Code\src\test_DragonAndDungeon.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Code\" />

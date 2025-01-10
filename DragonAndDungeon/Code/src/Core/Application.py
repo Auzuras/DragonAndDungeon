@@ -1,5 +1,5 @@
 from Core.Renderer.IRender import *
-from Core.Renderer.TerminalRender import *
+from Core.Renderer.TerminalRender import TerminalRender
 from GameClasses.Game import Game
 import time
 

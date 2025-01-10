@@ -3,7 +3,7 @@ import copy
 from Core.Renderer.IRender import *
 from GameClasses.Map.Grid import Grid
 from GameClasses.Map.Tile import Tile
-from GameClasses.Characters.Player import Player
+from GameClasses.Characters.Character import Character
 from GameClasses.Characters.Enemy import Enemy
 from GameClasses.Items.Potion import Potion
 from GameClasses.Game import Game

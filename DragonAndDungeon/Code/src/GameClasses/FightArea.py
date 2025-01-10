@@ -1,5 +1,4 @@
-﻿from re import S
-from GameClasses.Characters.Player import Player
+﻿from GameClasses.Characters.Player import Player
 from GameClasses.Characters.Enemy import Enemy
 from GameClasses.Characters.PlayerState import PlayerState
 from Core.Renderer.IRender import *
