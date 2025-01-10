@@ -60,5 +60,19 @@
         "damages": 50
       }
     ]
+  },
+  {
+    "name": "League of Legends",
+    "damage_multi": 1.5,
+    "attacks": [
+      {
+        "name": "Report Feedback",
+        "damages": 10
+      },
+      {
+        "name": "Riot Support",
+        "damages": 5
+      }
+    ]
   }
 ]

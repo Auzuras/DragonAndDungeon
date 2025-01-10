@@ -21,7 +21,7 @@ class FightArea:
 
         attack_infos = []
 
-        if self.__index % 2 == 0:
+        if self.__index % 2 == 1:
             attack_infos = self.__enemy.attack(self.__player)
             self.__index += 1
 

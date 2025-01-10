@@ -1,47 +1,50 @@
 [
   {
     "name": "Jonathan",
-    "level": 5,
-    "strength": 2,
-    "resistance": 3,
+    "level": 10,
+    "strength": 5,
+    "resistance": 6,
     "initiative": 2,
-    "dexterity": 1,
     "critical_multi": 1.2
   },
   {
     "name": "Joseph",
     "level": 1,
-    "strength": 0,
-    "resistance": 0,
-    "initiative": 5,
-    "dexterity": 1,
+    "strength": 1,
+    "resistance": 1,
+    "initiative": 1,
     "critical_multi": 1.1
   },
   {
     "name": "Giorno",
     "level": 20,
-    "strength": 30,
-    "resistance": 40,
-    "initiative": 15,
-    "dexterity": 10,
+    "strength": 6,
+    "resistance": 6,
+    "initiative": 11,
     "critical_multi": 2.0
   },
   {
     "name": "Jolyne",
-    "level": 3,
+    "level": 4,
     "strength": 3,
-    "resistance": 1,
-    "initiative": 4,
-    "dexterity": 1,
+    "resistance": 2,
+    "initiative": 2,
     "critical_multi": 1.0
   },
   {
     "name": "Jotaro",
     "level": 6,
     "strength": 4,
-    "resistance": 3,
-    "initiative": 2,
-    "dexterity": 1,
+    "resistance": 4,
+    "initiative": 0,
     "critical_multi": 1.1
+  },
+  {
+    "name": "My Enemy",
+    "level": 40,
+    "strength": 1,
+    "resistance": 39,
+    "initiative": 0,
+    "critical_multi": 1.0
   }
 ] 

@@ -1,6 +1,8 @@
 from GameClasses.Characters.PlayerState import PlayerState
+from Core.Renderer.IRender import *
 from GameClasses.Characters.Player import Player
 from GameClasses.Items.Item import Item
+from GameClasses.Items.Potion import Potion
 
 class InteractionSystem:
     def __init__(self, player, item):
@@ -23,8 +25,13 @@ class InteractionSystem:
         items.remove(self.__item)
         self.__player.player_state = PlayerState.WALKING
 
-    def draw(self):
+    def draw(self, renderer):
         print(f"\033[95m    -*-     {self.__item.name}      -*-\033[0m")
+        print("1 - Pick item")
+        if isinstance(self.__item, Potion):
+            print("2 - Use item")
+
+        renderer.draw_line()
 
 
 

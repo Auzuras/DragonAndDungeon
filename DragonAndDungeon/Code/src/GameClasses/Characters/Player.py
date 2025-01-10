@@ -1,4 +1,7 @@
-﻿from random import randint
+﻿from asyncio import WindowsProactorEventLoopPolicy
+from random import randint
+from tkinter import W
+from GameClasses.Items.Weapon import Weapon
 from GameClasses.Items.Potion import Potion, PotionType
 from GameClasses.Characters.Character import Character
 from GameClasses.Map.Grid import Grid
@@ -55,7 +58,6 @@ class Player(Character):
         print("Q - Quit")
 
     def __draw_combat(self):
-
         for i in range(len(self._weapon_inventory)):
 
             print(f"{i + 1} - {self._weapon_inventory[i].name}")
@@ -72,10 +74,6 @@ class Player(Character):
         for i in range(len(self._inventory)):
             print(f"    {i + 1} - {self._inventory[i].name}")
 
-    def __draw_interaction(self):
-        print("1 - Pick item")
-        print("2 - Use item")
-
     def __draw_game_over(self):
         print("\033[93m -*- Game Over -*- \033[0m")
         print("\033[93mPress any key to restart...\033[0m")
@@ -87,6 +85,14 @@ class Player(Character):
         return super().pick_weapon(weapon)
 
     def pick_item(self, item):
+
+        if type(item) == Weapon:
+            filtered_weapons = list(filter(lambda w: w.name == item.name, self._weapon_inventory))
+
+            if len(filtered_weapons) <= 0:
+                self._weapon_inventory.append(item)
+            return
+
         self._inventory.append(item)
 
     def _death(self):
@@ -167,14 +173,26 @@ class Player(Character):
 
         self.__add_level(lvl_nbr)
 
+    def __level_up_random_ability(self):
+        result = randint(1, 3)
+
+        if result == 1:
+            self._strength += 1
+        elif result == 2:
+            self._resistance += 1
+        elif result == 3:
+            self._initiative += 1
+
     def __add_level(self, level_nbr):
         self._level += level_nbr
 
         if level_nbr > 0:
             self.__xp = 0
+            self.__level_up_random_ability()
         elif self.__xp >= self.__max_xp:
             self.__xp = 0
             self._level += 1
+            self.__level_up_random_ability()
 
     # Update method
     def update(self, game_map):
@@ -191,13 +209,12 @@ class Player(Character):
     def draw(self, renderer):
         self.__draw_lvl_xp(renderer)
 
-        renderer.draw_line()
+        if not self.__player_state == PlayerState.INTERACTION:
+            renderer.draw_line()
 
         if self.__player_state == PlayerState.WALKING:
             self.__draw_infos()
         elif self.__player_state == PlayerState.COMBAT:
             self.__draw_combat()
-        elif self.__player_state == PlayerState.INTERACTION:
-            self.__draw_interaction()
         elif self.__player_state == PlayerState.GAME_OVER:
             self.__draw_game_over()

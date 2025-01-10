@@ -10,9 +10,10 @@ class Character(ABC):
 
     _level = 3
 
-    _strength = 1
-    _resistance = 1
-    _initiative = 1
+    _strength = 2
+    _resistance = 2
+    # value to decide which character start a fight according to the max value
+    _initiative = 2
 
     _critical_multi = 1.2
 
@@ -98,7 +99,10 @@ class Character(ABC):
 
         value = damage_amount - (self._resistance // 2)
 
-        self._life -= damage_amount
+        if value <= 0:
+            value = 0
+
+        self._life -= value
 
         if self._life <= 0:
             self._life = 0
@@ -131,7 +135,11 @@ class Character(ABC):
 
     @abstractmethod
     def pick_weapon(self, weapon):
-        self._weapon_inventory.append(weapon)
+        filtered_weapons = list(filter(lambda w: w.name == weapon.name, self._weapon_inventory))
+
+        if len(filtered_weapons) <= 0:
+            self._weapon_inventory.append(weapon)
+        return
 
     @abstractmethod
     def update(self):
