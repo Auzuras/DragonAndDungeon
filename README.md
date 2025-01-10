@@ -11,7 +11,7 @@ The project uses Python 3.7.7 and can be openned with a Visual Studio 2022 solut
 Do not hesitate to play the game with the console in full screen.
 
 ## Screenshots:
-![0]("")
+![0]("https://github.com/Auzuras/DragonAndDungeon/blob/dev/Screenshots/Capture%20d'%C3%A9cran%202025-01-10%20150048.png?raw=true")
 ![0]("")
 ![0]("")
 ![0]("")
