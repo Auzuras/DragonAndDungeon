@@ -1,4 +1,5 @@
 ﻿from random import randint
+from tkinter import SEL
 from unittest import defaultTestLoader
 from GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
@@ -90,7 +91,7 @@ class Game:
                 new_pot = Potion(potion_data["name"], potion_data["min_value"], potion_data["max_value"], PotionType.HEAL_POTION)
             else:
                 new_pot = Potion(potion_data["name"], potion_data["min_value"], potion_data["max_value"], PotionType.DAMAGE_POTION)
-        
+
             new_pot.x = x_pos
             new_pot.y = y_pos
 
@@ -107,6 +108,16 @@ class Game:
         self.potions = []
         self.__fight_area = None
         self.__interaction_system = None
+        self.init_enemies()
+        self.init_item()
+        self.load_weapons()
+
+         # first draw to have a scene before the first update
+        self.draw()
+
+    def __reload_level(self):
+        self.enemies = []
+        self.potions = []
         self.init_enemies()
         self.init_item()
         self.load_weapons()
@@ -137,7 +148,11 @@ class Game:
 
     # Starts a combat between a player and an enemy
     def __start_combat(self, player, enemy):
-        self.__fight_area = FightArea(player, enemy)
+        index = 0
+        if player.initiative < enemy.initiative:
+            index = 1
+
+        self.__fight_area = FightArea(player, enemy, index)
 
     # Checks collisions between a player position and an enemy position
     def check_enemy_collisions(self, player, enemies):
@@ -148,6 +163,7 @@ class Game:
         for enemy in enemies:
             if enemy.x == player.x and enemy.y == player.y and enemy.is_alive == True:
                 player.player_state = PlayerState.COMBAT
+
                 self.__start_combat(player, enemy)
 
     def check_item_collisions(self, player, items):
@@ -162,6 +178,9 @@ class Game:
 
     # Update method of the game
     def update(self):
+
+        if len(self.enemies) == 0 and len(self.items) == 0:
+            self.__reload_level()
 
         if self.player.player_state == PlayerState.GAME_OVER:
             restart = input()
@@ -188,6 +207,9 @@ class Game:
         if self.player.player_state == PlayerState.COMBAT or self.player.player_state == PlayerState.GAME_OVER:
            self.__fight_area.draw(self.renderer)
 
+        if self.player.player_state == PlayerState.INTERACTION:
+            self.__interaction_system.draw()
+
         self.renderer.draw_line()
-        self.player.draw()
+        self.player.draw(self.renderer)
         self.renderer.draw_line()

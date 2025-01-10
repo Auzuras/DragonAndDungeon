@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from GameClasses.Items.Weapon import Weapon
+from random import *
 
 class Character(ABC):
     _name = "None"
@@ -9,10 +10,9 @@ class Character(ABC):
 
     _level = 3
 
-    _strength = 5
-    _resistance = 2
+    _strength = 1
+    _resistance = 1
     _initiative = 1
-    _dexterity = 3
 
     _critical_multi = 1.2
 
@@ -71,14 +71,6 @@ class Character(ABC):
         self._initiative = initiative
 
     @property
-    def dexterity(self):
-        return self._dexterity
-
-    @dexterity.setter
-    def dexterity(self, dexterity):
-        self._dexterity = dexterity
-
-    @property
     def critical_multi(self):
         return self._critical_multi
 
@@ -111,6 +103,27 @@ class Character(ABC):
         if self._life <= 0:
             self._life = 0
             self._death()
+
+    @abstractmethod
+    def attack(self, receiver, weapon = None, attack= None):
+
+        next_weapon = self._weapon_inventory[weapon]
+        next_attack = next_weapon.attacks[attack]
+
+        crit_chance = randint(0, 100)
+
+        crit_value = 1.0
+
+        if crit_chance <= 10:
+            crit_value = self._critical_multi
+
+        dmg_value = next_attack.damages * crit_value + (self._strength // 3) + (self._level // 2)
+
+        receiver.take_damage(dmg_value)
+
+        next_attack.last_damages = dmg_value
+
+        return [next_weapon, next_attack, -dmg_value, False]
 
     @abstractmethod
     def _death(self):

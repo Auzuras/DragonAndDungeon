@@ -1,18 +1,24 @@
-﻿from GameClasses.Characters.Player import Player
+﻿from re import S
+from GameClasses.Characters.Player import Player
 from GameClasses.Characters.Enemy import Enemy
 from GameClasses.Characters.PlayerState import PlayerState
 from Core.Renderer.IRender import *
 
 class FightArea:
-    def __init__(self, player, enemy):
+    def __init__(self, player, enemy, index):
         self.__player = player
         self.__enemy = enemy
-        self.__index = 1
+        self.__index = index
         self.__combat_log = []
 
     def update(self, enemies):
 
-        # Array that will have the weapon used at first index and the last attack in second index
+        # Array that will return the data of the attack, indexes:
+        # 0 - Weapon
+        # 1 - Attack
+        # 2 - Damages
+        # 3 - bool is attack use item
+
         attack_infos = []
 
         if self.__index % 2 == 0:
@@ -32,7 +38,7 @@ class FightArea:
             p_weapon = int(input())
             p_attack = int(input())
 
-            attack_infos = self.__player.attack(p_weapon, p_attack, self.__enemy)
+            attack_infos = self.__player.attack(self.__enemy, p_weapon, p_attack)
 
             if len(attack_infos) <= 0:
                 return
@@ -43,7 +49,15 @@ class FightArea:
                 self.__player.player_state = PlayerState.WALKING
                 enemies.remove(self.__enemy)
 
-            text = f"\033[1;30m>\033[0m \033[32m{self.__player.name}\033[0m attacks \033[31m{self.__player.name}\033[0m with {attack_infos[0].name} using {attack_infos[1].name} ({attack_infos[2]}pv)"
+            text = ""
+
+            if attack_infos[3] == True:
+                text = f"\033[1;30m>\033[0m \033[32m{self.__player.name}\033[0m uses {attack_infos[0].name} ({attack_infos[2]}pv)"
+            else:
+                text = f"\033[1;30m>\033[0m \033[32m{self.__player.name}\033[0m attacks \033[31m{self.__enemy.name}\033[0m with {attack_infos[0].name} using {attack_infos[1].name} ({attack_infos[2]}pv)"
+            
+            self.__player.gain_xp(15)
+
             self.__combat_log.append(text)
 
             return

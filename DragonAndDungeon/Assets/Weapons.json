@@ -15,7 +15,7 @@
     "attacks": [
       {
         "name": "Kick",
-        "damages": 10
+        "damages": 7
       }
     ]
   },
@@ -25,11 +25,11 @@
     "attacks": [
       {
         "name": "Slash",
-        "damages": 15
+        "damages": 10
       },
       {
         "name": "Pierce",
-        "damages": 10
+        "damages": 8
       }
     ]
   },
@@ -39,7 +39,7 @@
     "attacks": [
       {
         "name": "Bonk",
-        "damages": 20
+        "damages": 10
       }
     ]
   },

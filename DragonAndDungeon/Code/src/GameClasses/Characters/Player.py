@@ -4,6 +4,7 @@ from GameClasses.Characters.Character import Character
 from GameClasses.Map.Grid import Grid
 from GameClasses.Attack import Attack
 from GameClasses.Characters.PlayerState import PlayerState
+import Core.Application as app
 
 class Player(Character):
 
@@ -16,10 +17,10 @@ class Player(Character):
         self.__max_xp = 100
         self.__player_state = PlayerState.WALKING
         self._weapon_inventory = []
+        # not really good but import loop and no time to fix it
+        from Core.Application import Application
 
-    def move(self, game_map):
-
-        result = input()
+    def move(self, result, game_map):
 
         new_x = self._x
         new_y = self._y
@@ -45,11 +46,13 @@ class Player(Character):
     def player_state(self, new_state):
         self.__player_state = new_state
 
-    def __draw_move(self):
+    def __draw_infos(self):
         print("W - Up")
         print("S - Down")
         print("A - Left")
         print("D - Right")
+        print(" ")
+        print("Q - Quit")
 
     def __draw_combat(self):
 
@@ -90,7 +93,7 @@ class Player(Character):
         self.__player_state = PlayerState.GAME_OVER
         return super()._death()
 
-    def attack(self, weapon, attack, enemy):
+    def attack(self, receiver, weapon = None, attack = None):
 
         if not self._is_alive:
             return []
@@ -109,7 +112,7 @@ class Player(Character):
                 value = self.use_potion(use_item)
                 self._inventory.remove(use_item)
 
-                return [use_item, use_item, value]
+                return [use_item, use_item, value, True]
 
         #Checks if the input is over or bellow the array size
         if weapon <= 0 or weapon > len(self._weapon_inventory):
@@ -119,16 +122,7 @@ class Player(Character):
         if attack <= 0 or attack > len(self._weapon_inventory[weapon - 1].attacks):
             return []
 
-        next_weapon = self._weapon_inventory[weapon - 1]
-        next_attack = next_weapon.attacks[attack - 1]
-
-        dmg_value = next_attack.damages + (self._strength // 2) * self._critical_multi
-
-        enemy.take_damage(dmg_value)
-
-        next_attack.last_damages = dmg_value
-
-        return [next_weapon, next_attack, float(dmg_value)]
+        return super().attack(receiver, weapon - 1, attack - 1)
 
     def use_potion(self, potion):
        
@@ -153,22 +147,57 @@ class Player(Character):
             self._life = 0
             self._death()
 
+    def __draw_lvl_xp(self, renderer):
+        xp_bar = "████████████████████"
+        xp_bar_empty = "━━━━━━━━━━━━━━━━━━━━"
+
+        percent = self.__xp / self.__max_xp
+        value = int(round(len(xp_bar) * percent))
+
+        final_bar = xp_bar[:value] + xp_bar_empty[value:]
+
+        print(f"Level: {self._level}")
+        print(f"Experience: \033[94m{final_bar}\033[0m   [{int(round(percent * 100))}%]")
+
+    def gain_xp(self, value):
+        lvl_nbr = value // self.__max_xp
+        xp_nbr = value % self.__max_xp
+
+        self.__xp += xp_nbr
+
+        self.__add_level(lvl_nbr)
+
+    def __add_level(self, level_nbr):
+        self._level += level_nbr
+
+        if level_nbr > 0:
+            self.__xp = 0
+        elif self.__xp >= self.__max_xp:
+            self.__xp = 0
+            self._level += 1
+
     # Update method
     def update(self, game_map):
 
         if self.__player_state == PlayerState.WALKING:
-            self.move(game_map)     
+            result = input()
+
+            if result.upper() == "Q":
+                app.Application.run_app = False
+
+            self.move(result, game_map)     
    
     # Draw method
-    def draw(self):
+    def draw(self, renderer):
+        self.__draw_lvl_xp(renderer)
+
+        renderer.draw_line()
+
         if self.__player_state == PlayerState.WALKING:
-            self.__draw_move()
+            self.__draw_infos()
         elif self.__player_state == PlayerState.COMBAT:
             self.__draw_combat()
         elif self.__player_state == PlayerState.INTERACTION:
             self.__draw_interaction()
         elif self.__player_state == PlayerState.GAME_OVER:
             self.__draw_game_over()
-
-    def take_item(self, item):
-        pass

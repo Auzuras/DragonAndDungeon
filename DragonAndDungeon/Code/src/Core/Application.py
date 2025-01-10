@@ -4,6 +4,8 @@ from GameClasses.Game import Game
 import time
 
 class Application:
+    run_app = True
+
     width = 960
     height = 540
     tile_size = 30
@@ -21,6 +23,6 @@ class Application:
         Application.tile_size = 30
 
     def update(self):
-        while True:
+        while Application.run_app:
             self.game.update()
             self.game.draw()
